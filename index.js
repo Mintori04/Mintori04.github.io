@@ -1,5 +1,5 @@
  window.onload = function () { // 로딩시 함수 실행
-    var desc = ["안녕하세요? 채민석 입니다. ", "문산수억고등학교 웹페이지 멘토링 입니다. ", "잘 부탁드립니다!"];
+    var desc = [document.getElementById('book1_desc').innerText, "문산수억고등학교 웹페이지 멘토링 입니다. ", "잘 부탁드립니다!"];
 
     var index = 0;
     var interval = setInterval(function() {
