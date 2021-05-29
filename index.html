@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
-        <link rel="stylesheet" href="style.css">
-        <script type="text/javascript" src="index.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css">
-    </head>
-    <body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css">
+</head>
+
+<body>
     <div>
         <div class="navigation">
             <img src="img/icon.svg" alt="logoicon">
@@ -29,18 +31,18 @@
                 <div class="contents">
                     <h1>채민석</h1>
                     <p>안녕하세요?<br>저는 채민석 입니다.</p>
-                <div class="page">
-                    <div class="text">
-                        <p id="book1_desc"> 안녕하세요? 채민석 입니다. </p>
-                    </div>
-                    <div class="arrow">
-                        <img src="img/next.svg" alt="left" id="left-arrow">
-                        <img src="img/next.svg" alt="right" id="right-arrow">
+                    <div class="page">
+                        <div class="text">
+                            <p id="book1_desc"> 안녕하세요? 채민석 입니다. </p>
+                        </div>
+                        <div class="arrow">
+                            <img src="img/next.svg" alt="left" id="left-arrow">
+                            <img src="img/next.svg" alt="right" id="right-arrow">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
         <div class="card" id="book2">
             <div class="wrapper">
                 <div class="title">
@@ -92,14 +94,71 @@
                         </div>
                         <div class="article-desc-container">
                             <div class="text-box">
-                                <h2>title</h2>
-                                <p>Description</p>
+                                <h2 id="article-title1">
+                                    <script>
+                                        $(function () {
+                                            $.get('article/article1.html', function (result) {
+                                                var obj = $(result).find('h1');
+                                                document.getElementById("article-title1").innerText = obj.html();
+                                                // article1.html에 있는 기사 제목을
+                                                // index.html의 가사 칸의 기사 제목 영역에 대입
+                                            });
+                                        });
+                                    </script>
+                                </h2>
+                                <p id="article-desc1" class="article-desc">
+                                    <script>
+                                        $(function () {
+                                            $.get('article/article1.html', function (result) {
+                                                var obj = $(result).find('p'); // 2번째 기사 가져오고 싶으면 p 뒤에 # 으로 속성 추가
+                                                document.getElementById("article-desc1").innerText = obj.html().substr(0, 550) + "...";
+                                                // article1.html에 있는 기사 본문을
+                                                // index.html의 가사 칸의 기사 본문 영역에 대입
+                                            });
+                                        });
+                                    </script>
+                                </p>
                             </div>
-                            <button>자세히 보기</button>
+                            <a href="article/article1.html"><button>자세히 보기</button></a>
+                        </div>
+                    </div>
+                    <div class="article">
+                        <div class="article-img-container">
+                            <img src="img/temp.jpg" alt="article_pic">
+                        </div>
+                        <div class="article-desc-container">
+                            <div class="text-box">
+                                <h2 id="article-title2">
+                                    <script>
+                                        $(function () {
+                                            $.get('article/article2.html', function (result) {
+                                                var obj = $(result).find('h1');
+                                                document.getElementById("article-title2").innerText = obj.html();
+                                                // article2.html에 있는 기사 제목을
+                                                // index.html의 가사 칸의 기사 제목 영역에 대입
+                                            });
+                                        });
+                                    </script>
+                                </h2>
+                                <p id="article-desc2" class="article-desc">
+                                    <script>
+                                        $(function () {
+                                            $.get('article/article2.html', function (result) {
+                                                var obj = $(result).find('p'); // 2번째 기사 가져오고 싶으면 p 뒤에 # 으로 속성 추가
+                                                document.getElementById("article-desc2").innerText = obj.html().substr(0, 550) + "...";
+                                                // article2.html에 있는 기사 본문을
+                                                // index.html의 가사 칸의 기사 본문 영역에 대입
+                                            });
+                                        });
+                                    </script>
+                                </p>
+                            </div>
+                            <a href="article/article2.html"><button>자세히 보기</button></a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </body>
+</body>
+
 </html>
